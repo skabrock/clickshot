@@ -1,0 +1,53 @@
+.root {
+  width: 100vw;
+  height: 100vh;
+  min-height: 800px;
+  overflow: auto;
+  background: #7a8b7f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  padding: 30px;
+  display: flex;
+  gap: 43px;
+  width: 100%;
+  justify-content: center;
+}
+
+.mobileImage {
+  display: block;
+  width: 100%;
+  max-width: 447px;
+  height: auto;
+}
+
+.contentConteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+  max-width: 402px;
+  width: 100%;
+}
+
+.content {
+  border: 1px solid white;
+  border-radius: 15px;
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.googleBtn {
+  display: block;
+  width: 120px;
+}
+
+.googleImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
