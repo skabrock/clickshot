@@ -1,0 +1,67 @@
+.root {
+  padding: 53px 29px 25px;
+}
+
+.textInput {
+  margin-bottom: 24px;
+}
+
+.rememberMe {
+  margin-bottom: 24px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.checBoxInput {
+  display: none;
+  &:checked + .rememberMeCheckBoxUi:before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 2px;
+  }
+}
+
+.inputButtonLogIn {
+  margin-bottom: 22px;
+}
+
+.rememberMeCheckBoxUi {
+  display: inline-flex;
+  width: 19px;
+  height: 19px;
+  border-radius: 3px;
+  border: 2px solid white;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.rememberMeCheckBoxLabel {
+  user-select: none;
+  vertical-align: middle;
+}
+
+.clickShotLogo {
+  width: 220px;
+  margin-left: 57px;
+  margin-bottom: 45px;
+}
+
+.dontHaveAnAccaunt {
+  text-align: center;
+}
+
+.forgotPass {
+  text-align: right;
+  margin-bottom: 11px;
+  margin-top: 14px;
+}
+
+.signIn {
+  color: #7cb0ff;
+  margin-left: 4px;
+}

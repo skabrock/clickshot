@@ -7,20 +7,19 @@ import styles from "./Input.module.scss";
 
 import EyeIcon from "../../../images/eye-icon.svg";
 
-type InputProps = {
-  value?: string | number;
-  id?: string;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type?: "text" | "date" | "email" | "password";
   label?: string;
-  className?: string;
-};
+  error?: string;
+}
 
 const Input: React.FC<InputProps> = ({
-  value,
   id,
   type = "text",
   label,
   className,
+  error,
+  ...other
 }) => {
   const [isPwShown, setIsPwShown] = useState(false);
 
@@ -29,16 +28,21 @@ const Input: React.FC<InputProps> = ({
   };
 
   const isPw = type === "password";
+  const isError = error !== undefined;
 
   return (
-    <div className={cn(styles.root, className)}>
+    <div
+      className={cn(styles.root, className, { [styles.rootError]: isError })}
+    >
       <input
         className={cn(styles.input, {
           [styles.inputWithBtn]: isPw,
+          [styles.inputError]: isError,
         })}
         placeholder=" "
         type={isPwShown ? "text" : type}
         id={id}
+        {...other}
       />
       <label className={styles.label} htmlFor={id} title={label}>
         {label}
@@ -52,6 +56,7 @@ const Input: React.FC<InputProps> = ({
           />
         </button>
       )}
+      {isError && <div className={styles.errorText}>{error}</div>}
     </div>
   );
 };

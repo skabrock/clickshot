@@ -1,7 +1,11 @@
-import SignUpForm from "@/app/components/SignUpForm/SignUpForm";
+import SignInForm from "@/app/components/SignInForm";
 
-const SignUp = () => {
-  return <div>test</div>;
+const SignIn = () => {
+  return (
+    <div>
+      <SignInForm />
+    </div>
+  );
 };
 
-export default SignUp;
+export default SignIn;
