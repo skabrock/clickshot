@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Input } from "../UIKit/Input";
 import { Button } from "../UIKit/Button";
 
@@ -42,9 +44,9 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onNextStep }) => {
       </Button>
       <div className={styles.haveAnAccount}>
         Have an account?
-        <a className={styles.login} href="/">
+        <Link className={styles.login} href="/auth/sign-in">
           Log In
-        </a>
+        </Link>
       </div>
     </div>
   );

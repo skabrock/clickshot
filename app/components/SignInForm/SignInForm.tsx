@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Input } from "../UIKit/Input";
 import { Button } from "../UIKit/Button";
 
@@ -26,9 +28,9 @@ const SignInForm = () => {
       </div>
       <div className={styles.dontHaveAnAccaunt}>
         Don&apos;t have an account?
-        <a className={styles.signIn} href="/">
+        <Link className={styles.signIn} href="/auth/sign-up">
           Sign up
-        </a>
+        </Link>
       </div>
     </div>
   );
