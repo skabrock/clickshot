@@ -5,7 +5,7 @@ import cn from "clsx";
 
 import styles from "./Input.module.scss";
 
-import EyeIcon from "../../../images/eye-icon.svg";
+import EyeIcon from "../../../images/icons/eye-icon.svg";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type?: "text" | "date" | "email" | "password";

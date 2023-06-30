@@ -1,0 +1,13 @@
+.root {
+  padding: 14px 0;
+  width: 100%;
+}
+
+.post {
+  max-width: 411px;
+  margin: 0 auto;
+
+  & + .post {
+    margin-top: 14px;
+  }
+}

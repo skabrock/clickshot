@@ -1,0 +1,82 @@
+.root {
+  background-color: #f1f2ed;
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+  border-radius: 15px;
+  padding: 13px;
+  margin: 0px;
+}
+
+.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 250px;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.actionPanel {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+.likeAmount {
+  color: black;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.postDescription {
+  color: black;
+}
+
+.comments {
+  color: black;
+}
+
+%button {
+  width: auto;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0px;
+  color: black;
+  transition: 0.2s;
+
+  &:hover {
+    color: #7a8b7f;
+  }
+
+  > svg {
+    display: block;
+    height: 100%;
+  }
+}
+
+.saveButton,
+.likeButton,
+.commentsButton,
+.sendToButton {
+  @extend %button;
+}
+
+.sendToButton {
+  > svg {
+    height: 17px;
+  }
+}
+
+.iconGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 18px;
+}

@@ -1,0 +1,1 @@
+export { postsMock } from "./posts";
