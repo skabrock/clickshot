@@ -68,3 +68,114 @@
     margin-right: 15px;
   }
 }
+
+.myProfile,
+.recomendations {
+  width: 333px;
+  background-color: #f1f2ed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 14px;
+  margin-right: 14px;
+}
+
+.recomendations {
+  flex-direction: column;
+}
+
+.profileLeftConteiner {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.myProfileImg {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.myNameAndNickName {
+  display: flex;
+  flex-direction: column;
+}
+
+.myProfileNickName {
+  color: #7a8b7f;
+  font-weight: bold;
+}
+
+.myProfileName {
+  color: #57665c;
+  font-size: 12px;
+}
+
+.switchAccountBtn {
+  background-color: #7a8b7f;
+  border: 0px;
+  color: #f1f2ed;
+  width: 106px;
+  height: 25px;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+.recommendationHeader {
+  width: 100%;
+  color: #7a8b7f;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.recommendationsForYou {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.recommendationBody {
+  width: 100%;
+  color: black;
+}
+
+.recommendedUserContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.recommendedUserAvatarNameAndNickName {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.recommendedUserNameAndNickName {
+  display: flex;
+  flex-direction: column;
+}
+
+.recommendedUserNickName {
+  color: #7a8b7f;
+  font-weight: bold;
+  line-height: 15px;
+}
+
+.recommendedUserName {
+  color: #57665c;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.recommendedUserAvatar {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}

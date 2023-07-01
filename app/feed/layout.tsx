@@ -1,5 +1,9 @@
 import cn from "clsx";
 
+import { recommendedUsersMock } from "../mocks";
+
+import { ButtonSmall } from "../components/ButtonSmall";
+
 import ClickShotLogo from "@/app/images/clickshot-logo.svg";
 import HomeIcon from "@/app/images/icons/home-icon.svg";
 import SearchIcon from "@/app/images/icons/search-icon.svg";
@@ -88,7 +92,52 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </nav>
       {children}
       <nav className={cn(styles.sidebar, styles.sidebarRight)}>
-        <ClickShotLogo className={styles.logo} />
+        <div className={styles.myProfile}>
+          <div className={styles.profileLeftConteiner}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={styles.myProfileImg}
+              src="https://www.befunky.com/images/prismic/318d2218-716f-4dd6-a95d-9fa409ec447e_landing-photo-to-cartoon-img4.jpeg"
+              alt="photp"
+            />
+            <div className={styles.myNameAndNickName}>
+              <div className={styles.myProfileNickName}>antoinele </div>
+              <div className={styles.myProfileName}>Antoinette Bear</div>
+            </div>
+          </div>
+          <button className={styles.switchAccountBtn}>Switch account</button>
+        </div>
+        <div className={styles.recomendations}>
+          <div className={styles.recommendationHeader}>
+            <div className={styles.recommendationsForYou}>
+              Recommendations for you
+            </div>
+            <div>All</div>
+          </div>
+          <div className={styles.recommendationBody}>
+            {recommendedUsersMock.map((user) => (
+              <div className={styles.recommendedUserContainer} key={user.id}>
+                <div className={styles.recommendedUserAvatarNameAndNickName}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className={styles.recommendedUserAvatar}
+                    src={user.mediaUrl}
+                    alt={user.nickName}
+                  />
+                  <div className={styles.recommendedUserNameAndNickName}>
+                    <div className={styles.recommendedUserNickName}>
+                      {user.nickName}
+                    </div>
+                    <div className={styles.recommendedUserName}>
+                      {user.name}
+                    </div>
+                  </div>
+                </div>
+                <ButtonSmall className={styles.subscribeBtn}></ButtonSmall>
+              </div>
+            ))}
+          </div>
+        </div>
       </nav>
     </div>
   );

@@ -6,6 +6,7 @@
   border-radius: 15px;
   padding: 13px;
   margin: 0px;
+  color: black;
 }
 
 .pic {
@@ -26,17 +27,14 @@
 }
 
 .likeAmount {
-  color: black;
   line-height: 24px;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .postDescription {
-  color: black;
-}
-
-.comments {
-  color: black;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 10px;
 }
 
 %button {
@@ -48,8 +46,8 @@
   justify-content: center;
   background: none;
   border: 0px;
-  color: black;
   transition: 0.2s;
+  color: black;
 
   &:hover {
     color: #7a8b7f;
@@ -68,9 +66,15 @@
   @extend %button;
 }
 
-.sendToButton {
-  > svg {
-    height: 17px;
+.sendToButton > svg {
+  height: 17px;
+}
+
+.likeButtonActive {
+  color: #f2374d;
+
+  &:hover {
+    color: #ed7482;
   }
 }
 
@@ -79,4 +83,47 @@
   justify-content: space-between;
   align-items: center;
   column-gap: 18px;
+}
+
+.footerOfPost,
+.postCreatorInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commentatorUsername {
+  font-weight: bolder;
+  line-height: 23px;
+  margin-right: 5px;
+}
+
+.commentText {
+  line-height: 23px;
+}
+
+.postCreatorAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 6px;
+}
+
+.date {
+  color: #4f4a4a;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 23px;
+}
+
+.user {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+.rightInfoBlock {
+  display: flex;
+  flex-direction: column;
 }

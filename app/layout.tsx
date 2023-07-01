@@ -1,7 +1,9 @@
 import "./globals.css";
-import { Roboto } from "next/font/google";
+// import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const roboto = Roboto({ weight: ["100", "300", "400"], subsets: ["latin"] });
+// const roboto = Roboto({ weight: ["100", "300", "400"], subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "ClickShot",
@@ -15,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

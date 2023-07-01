@@ -16,6 +16,6 @@ export interface Post {
       id: string;
       name: string;
     };
-    comment: string;
+    text: string;
   }[];
 }

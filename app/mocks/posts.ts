@@ -8,13 +8,14 @@ export const postsMock: Post[] = [
       "I was so inspired by Stray - game about cat's adventures that I decided to make Consequat minim magna aute ad adipisicing magna sit deserunt consequat. Ex officia exercitation incididunt ad laborum minim nisi eu.",
     mediaUrl:
       "https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?cs=srgb&dl=pexels-simon-berger-1266810.jpg&fm=jpg",
-    addDate: "2023-06-09 14:53:17",
+    addDate: "2023-06-30 21:53:17",
     author: {
       id: "103",
       name: "alicebob",
-      avatar: "https://some.avatar.link/image.png",
+      avatar:
+        "https://learnandsupport.getolympus.com/sites/default/files/styles/hero_large/public/2018-09/image2.jpg?itok=if8GyZts",
     },
-    isLiked: true,
+    isLiked: false,
     isSaved: false,
     comments: [
       {
@@ -22,14 +23,21 @@ export const postsMock: Post[] = [
           id: "100",
           name: "alicebob2",
         },
-        comment: "wow!",
+        text: "wow!",
       },
       {
         user: {
           id: "101",
           name: "alicebob3",
         },
-        comment: "Great scene!",
+        text: "Great scene!",
+      },
+      {
+        user: {
+          id: "103",
+          name: "test",
+        },
+        text: "Third comment",
       },
     ],
   },
@@ -43,39 +51,41 @@ export const postsMock: Post[] = [
     author: {
       id: "103",
       name: "art.jam101",
-      avatar: "https://some.avatar.link/image.png",
+      avatar:
+        "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2011/07/outdoor-portraits-1.jpg?fit=5184%2C3456&ssl=1",
     },
-    isLiked: true,
-    isSaved: false,
+    isLiked: false,
+    isSaved: true,
     comments: [
       {
         user: {
           id: "200",
           name: "weirdo",
         },
-        comment: "unusual image of iron man",
+        text: "unusual image of iron man",
       },
       {
         user: {
           id: "201",
           name: "highbeam",
         },
-        comment: "interesting",
+        text: "interesting",
       },
     ],
   },
   {
-    id: "1",
-    likes: "275",
+    id: "3",
+    likes: "25",
     description:
       "I was so inspired by Stray - game about cat's adventures that I decided to make Consequat minim magna aute ad adipisicing magna sit deserunt consequat. Ex officia exercitation incididunt ad laborum minim nisi eu.",
     mediaUrl:
-      "https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?cs=srgb&dl=pexels-simon-berger-1266810.jpg&fm=jpg",
+      "https://mymodernmet.com/wp/wp-content/uploads/2021/12/kristina-makeeva-eoy-photo-1.jpeg",
     addDate: "2023-06-09 14:53:17",
     author: {
       id: "103",
       name: "alicebob",
-      avatar: "https://some.avatar.link/image.png",
+      avatar:
+        "https://www.peerspace.com/resources/wp-content/uploads/best-vancouver-portrait-photographers.png",
     },
     isLiked: true,
     isSaved: false,
@@ -85,29 +95,29 @@ export const postsMock: Post[] = [
           id: "100",
           name: "alicebob2",
         },
-        comment: "wow!",
+        text: "Irure labore sunt",
       },
       {
         user: {
           id: "101",
           name: "alicebob3",
         },
-        comment: "Great scene!",
+        text: "Great scene!",
       },
     ],
   },
   {
-    id: "1",
-    likes: "275",
+    id: "4",
+    likes: "93",
     description:
       "I was so inspired by Stray - game about cat's adventures that I decided to make Consequat minim magna aute ad adipisicing magna sit deserunt consequat. Ex officia exercitation incididunt ad laborum minim nisi eu.",
-    mediaUrl:
-      "https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?cs=srgb&dl=pexels-simon-berger-1266810.jpg&fm=jpg",
+    mediaUrl: "https://www.pexels.com/photo/45853/download/",
     addDate: "2023-06-09 14:53:17",
     author: {
       id: "103",
       name: "alicebob",
-      avatar: "https://some.avatar.link/image.png",
+      avatar:
+        "https://images-pw.pixieset.com/elementfield/31745446/TheMorganFamily-6-7a643b07.jpg",
     },
     isLiked: true,
     isSaved: false,
@@ -117,14 +127,14 @@ export const postsMock: Post[] = [
           id: "100",
           name: "alicebob2",
         },
-        comment: "wow!",
+        text: "wow!",
       },
       {
         user: {
           id: "101",
           name: "alicebob3",
         },
-        comment: "Great scene!",
+        text: "Great scene!",
       },
     ],
   },
