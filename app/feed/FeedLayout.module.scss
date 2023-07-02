@@ -112,6 +112,7 @@
 .myProfileName {
   color: #57665c;
   font-size: 12px;
+  margin-top: 2px;
 }
 
 .switchAccountBtn {
@@ -130,6 +131,13 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.recommendationBtn {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  color: #7a8b7f;
 }
 
 .recommendationsForYou {
@@ -151,7 +159,7 @@
 
 .recommendedUserAvatarNameAndNickName {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
 }
 
@@ -163,14 +171,14 @@
 .recommendedUserNickName {
   color: #7a8b7f;
   font-weight: 500;
-  line-height: 15px;
+  font-size: 14px;
 }
 
 .recommendedUserName {
   color: #57665c;
   font-size: 12px;
-  line-height: 15px;
   font-weight: 400;
+  margin-top: 2px;
 }
 
 .recommendedUserAvatar {

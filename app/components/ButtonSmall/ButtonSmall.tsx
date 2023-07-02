@@ -1,14 +1,19 @@
-import { Inter } from "next/font/google";
-import { capitalized } from "@/app/utils";
+import cn from "clsx";
 
 import styles from "./ButtonSmall.module.scss";
 
-const inter = Inter({ subsets: ["latin"] });
-
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const ButtonSmall: React.FC<ButtonProps> = () => {
-  return <button className={styles.root}>Subscribe</button>;
+const ButtonSmall: React.FC<ButtonProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  return (
+    <button className={cn(styles.root, className)} {...props}>
+      {children}
+    </button>
+  );
 };
 
 export default ButtonSmall;

@@ -105,14 +105,16 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <div className={styles.myProfileName}>Antoinette Bear</div>
             </div>
           </div>
-          <button className={styles.switchAccountBtn}>Switch account</button>
+          <ButtonSmall className={styles.switchAccountBtn}>
+            Switch account
+          </ButtonSmall>
         </div>
         <div className={styles.recomendations}>
           <div className={styles.recommendationHeader}>
             <div className={styles.recommendationsForYou}>
               Recommendations for you
             </div>
-            <div>All</div>
+            <button className={styles.recommendationBtn}>All</button>
           </div>
           <div className={styles.recommendationBody}>
             {recommendedUsersMock.map((user) => (
@@ -133,7 +135,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     </div>
                   </div>
                 </div>
-                <ButtonSmall className={styles.subscribeBtn}></ButtonSmall>
+                <ButtonSmall className={styles.subscribeBtn}>
+                  Subscribe
+                </ButtonSmall>
               </div>
             ))}
           </div>
