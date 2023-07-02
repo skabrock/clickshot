@@ -23,7 +23,7 @@ export const postsMock: Post[] = [
           id: "100",
           name: "alicebob2",
         },
-        text: "wow!",
+        text: "wow! wow! wow! wow! wow! wow!wow! wow! wow! wow! wow!  wow! v wow! wow! v  wow!wow!wow! wow!",
       },
       {
         user: {

@@ -73,31 +73,37 @@ const PostComponent: React.FC<PostProps> = ({
         </div>
       </div>
       <div className={styles.likeAmount}>Like: {likes}</div>
-      <div className={styles.postDescription}>{description}</div>
+      <div className={styles.postDescription} title={description}>
+        {description}
+      </div>
       <div className={styles.footerOfPost}>
-        <div className={styles.comments}>
+        <div>
           {comments.slice(0, 2).map((comment, i) => (
-            <div key={i}>
-              <span className={styles.commentatorUsername}>
+            <div className={styles.comment} key={i}>
+              <a href="/" className={styles.commentatorUsername}>
                 {comment.user.name}
-              </span>
+              </a>
               <span className={styles.commentText}>{comment.text}</span>
             </div>
           ))}
         </div>
         <div className={styles.postCreatorInfo}>
-          <div className={styles.rightInfoBlock}>
-            <div className={styles.user}>{author.name}</div>
+          <div>
+            <a href="/" className={styles.user}>
+              {author.name}
+            </a>
             <div className={styles.date}>
               {formatDistanceToNow(new Date(addDate))}
             </div>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className={styles.postCreatorAvatar}
-            src={author.avatar}
-            alt="avatar"
-          />
+          <a className={styles.postCreatorAvatarLink} href="/">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={styles.postCreatorAvatar}
+              src={author.avatar}
+              alt="avatar"
+            />
+          </a>
         </div>
       </div>
     </div>
