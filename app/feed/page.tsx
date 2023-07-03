@@ -1,15 +1,21 @@
-import styles from "./Feed.module.scss";
+import type { ReactElement } from "react";
 
 import { postsMock } from "@/app/mocks";
+import Post from "@/app/components/Post";
+import MainLayout from "@/app/components/MainLayout/MainLayout";
 
-import Post from "../components/Post";
+import styles from "./Feed.module.scss";
 
-export default function Home() {
+const Feed = () => {
   return (
-    <main className={styles.root}>
-      {postsMock.map((post) => (
-        <Post key={post.id} className={styles.post} {...post} />
-      ))}
-    </main>
+    <MainLayout>
+      <main className={styles.root}>
+        {postsMock.map((post) => (
+          <Post key={post.id} className={styles.post} {...post} />
+        ))}
+      </main>
+    </MainLayout>
   );
-}
+};
+
+export default Feed;

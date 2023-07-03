@@ -1,0 +1,164 @@
+.root {
+  width: 100%;
+  padding: 14px;
+  color: #7a8b7f;
+  min-width: 775px;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #aab7ae;
+  padding: 14px;
+}
+
+%block {
+  width: 100%;
+  border-radius: 10px;
+  background: #f1f2ed;
+
+  & + %block {
+    margin-top: 14px;
+  }
+}
+
+.header {
+  @extend %block;
+  min-height: 200px;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  column-gap: 20px;
+}
+
+.avatar {
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+.third {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.editBtn {
+  display: block;
+  padding: 6.5px 27px;
+  border-radius: 52px;
+  border: 0;
+  background: #7a8b7f;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  user-select: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.username {
+  margin-bottom: 7px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.description {
+  color: #000;
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+
+.stats {
+  min-width: 300px;
+  background: white;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 10px 0;
+}
+
+.statsBlock {
+  padding: 0 10px;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+  font-weight: 400;
+}
+
+.statsTitle {
+  font-weight: 500;
+  color: #7a8b7f;
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.body {
+  @extend %block;
+  min-height: 263px;
+  height: auto;
+  padding: 20px;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  margin-bottom: -10px;
+}
+
+.post {
+  flex: 1 1 200px;
+  aspect-ratio: 3/2;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.postFiller {
+  @extend .post;
+  aspect-ratio: initial;
+  margin-bottom: 0;
+  pointer-events: none;
+}
+
+.postImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 5px;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16/9;
+}
+
+.placeholderTitle {
+  font-size: 19px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.placeholderSubtitle {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 12px;
+}
