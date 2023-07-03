@@ -1,6 +1,11 @@
+"use client";
+
 import cn from "clsx";
 
 import { recommendedUsersMock } from "@/app/mocks";
+
+import { useModal } from "../Modal/useModal";
+import NewPost from "../NewPost/NewPost";
 
 import { ButtonSmall } from "@/app/components/ButtonSmall";
 import ClickShotLogo from "@/app/images/clickshot-logo.svg";
@@ -76,84 +81,91 @@ const Recommendations = () => (
 const Layout: React.FC<LayoutProps> = ({
   children,
   recommendations = true,
-}) => (
-  <div
-    className={cn(styles.root, {
-      [styles.withRecommendations]: recommendations,
-    })}
-  >
-    <nav className={styles.sidebar}>
-      <div className={styles.logoContainer}>
-        <ClickShotLogo className={styles.logo} />
-      </div>
-      <div className={styles.menuContainer}>
-        <ul className={styles.list}>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <HomeIcon />
-              <span>Main</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <SearchIcon />
-              <span>Search</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <AddPostIcon />
-              <span>Add post</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <NotificationIcon />
-              <span>Notifications</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <SaveIcon />
-              <span>Saved</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <ProfileIcon />
-              <span>Profile</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <ThemeIcon />
-              <span>Theme menu</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <FavoriteIcon />
-              <span>Favorites</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <SettingsIcon />
-              <span>Settings</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className={styles.listItem}>
-              <LogoutIcon />
-              <span>Log out</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    {children}
-    {recommendations && <Recommendations />}
-  </div>
-);
+}) => {
+  // const [showNewPost, hideNewPost] = useModal(() => (
+  //   <NewPost hide={hideNewPost} />
+  // ));
+
+  return (
+    <div
+      className={cn(styles.root, {
+        [styles.withRecommendations]: recommendations,
+      })}
+    >
+      <nav className={styles.sidebar}>
+        <div className={styles.logoContainer}>
+          <ClickShotLogo className={styles.logo} />
+        </div>
+        <div className={styles.menuContainer}>
+          <ul className={styles.list}>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <HomeIcon />
+                <span>Main</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <SearchIcon />
+                <span>Search</span>
+              </a>
+            </li>
+            <li>
+              {/* <button className={styles.listItem} onClick={showNewPost}> */}
+              <button className={styles.listItem}>
+                <AddPostIcon />
+                <span>Add post</span>
+              </button>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <NotificationIcon />
+                <span>Notifications</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <SaveIcon />
+                <span>Saved</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <ProfileIcon />
+                <span>Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <ThemeIcon />
+                <span>Theme menu</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <FavoriteIcon />
+                <span>Favorites</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <SettingsIcon />
+                <span>Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className={styles.listItem}>
+                <LogoutIcon />
+                <span>Log out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      {children}
+      {recommendations && <Recommendations />}
+    </div>
+  );
+};
 
 export default Layout;
