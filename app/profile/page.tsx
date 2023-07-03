@@ -43,7 +43,7 @@ const Profile: React.FC = () => (
         <div className={styles.body}>
           {posts.length ? (
             <div className={styles.posts}>
-              {posts.slice(0, 21).map((post) => (
+              {posts.map((post) => (
                 <button key={post.id} className={styles.post}>
                   <img src={post.mediaUrl} className={styles.postImage} />
                 </button>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import SignUpForm from "@/app/components/SignUpForm/SignUpForm";
+import SignUpForm from "@/app/components/SignUpForm";
 import EmailConfirmationForm from "@/app/components/EmailConfirmationForm";
 import AddPhotoForm from "@/app/components/AddPhotoForm";
 

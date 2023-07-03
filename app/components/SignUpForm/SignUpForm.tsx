@@ -5,7 +5,7 @@ import { Button } from "../UIKit/Button";
 
 import ClickshotLogo from "../../images/clickshot-logo.svg";
 
-import styles from "./SignUp.module.scss";
+import styles from "./SignUpForm.module.scss";
 
 type SignUpFormProps = {
   onNextStep: () => void;
