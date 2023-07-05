@@ -1,3 +1,5 @@
+"use client";
+
 import { memo } from "react";
 import ReactDOM from "react-dom";
 
@@ -18,6 +20,10 @@ const ModalRenderer = memo(({ component, ...rest }: ModalRendererProps) =>
 ModalRenderer.displayName = "ModalRenderer";
 
 export const ModalRoot: React.FC<ModalRootProp> = memo(({ modals }) => {
+  if (typeof document === "undefined") {
+    return;
+  }
+
   return ReactDOM.createPortal(
     <>
       {Object.keys(modals).map((key) => (

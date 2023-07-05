@@ -32,12 +32,13 @@
   height: 84px;
   border-radius: 0 0 15px 0;
   display: flex;
-  vertical-align: auto;
   justify-content: center;
+  align-items: center;
   margin-bottom: 14px;
 }
 
 .logo {
+  display: block;
   width: 145px;
   color: white;
 }
@@ -97,7 +98,7 @@
 
 .profileLeftContainer {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   cursor: pointer;
 }
