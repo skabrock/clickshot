@@ -66,7 +66,7 @@
 
   > span {
     vertical-align: middle;
-    line-height: 18px;
+    font-size: 15px;
   }
 
   > svg {
@@ -79,7 +79,7 @@
 }
 
 .myProfile,
-.recomendations {
+.recommendations {
   width: 333px;
   background-color: #f1f2ed;
   display: flex;
@@ -91,11 +91,11 @@
   margin-right: 14px;
 }
 
-.recomendations {
+.recommendations {
   flex-direction: column;
 }
 
-.profileLeftConteiner {
+.profileLeftContainer {
   display: flex;
   justify-content: end;
   align-items: center;
@@ -107,6 +107,7 @@
   height: 54px;
   border-radius: 50%;
   margin-right: 15px;
+  object-fit: cover;
 }
 
 .myNameAndNickName {

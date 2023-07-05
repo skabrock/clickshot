@@ -2,10 +2,13 @@
 
 import cn from "clsx";
 
-import { recommendedUsersMock } from "@/app/mocks";
+import Link from "next/link";
+
+import { recommendedUsersMock as recommendedUsers } from "@/app/mocks";
+import { userMock as user } from "@/app/mocks/";
 
 import { useModal } from "../Modal/useModal";
-import NewPost from "../NewPost/NewPost";
+import NewPost from "../NewPost";
 
 import { ButtonSmall } from "@/app/components/ButtonSmall";
 import ClickShotLogo from "@/app/images/clickshot-logo.svg";
@@ -30,23 +33,21 @@ interface LayoutProps {
 const Recommendations = () => (
   <nav className={cn(styles.sidebar, styles.sidebarRight)}>
     <div className={styles.myProfile}>
-      <div className={styles.profileLeftConteiner}>
+      <Link className={styles.profileLeftContainer} href="/profile">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className={styles.myProfileImg}
-          src="https://www.befunky.com/images/prismic/318d2218-716f-4dd6-a95d-9fa409ec447e_landing-photo-to-cartoon-img4.jpeg"
-          alt="photp"
-        />
+        <img className={styles.myProfileImg} src={user.mediaUrl} alt="photo" />
         <div className={styles.myNameAndNickName}>
-          <div className={styles.myProfileNickName}>antoinele </div>
-          <div className={styles.myProfileName}>Antoinette Bear</div>
+          <div className={styles.myProfileNickName}>{user.username} </div>
+          <div className={styles.myProfileName}>{user.name}</div>
         </div>
-      </div>
-      <ButtonSmall className={styles.switchAccountBtn}>
-        Switch account
-      </ButtonSmall>
+      </Link>
+      <Link href={"/auth/sign-in"}>
+        <ButtonSmall className={styles.switchAccountBtn}>
+          Switch account
+        </ButtonSmall>
+      </Link>
     </div>
-    <div className={styles.recomendations}>
+    <div className={styles.recommendations}>
       <div className={styles.recommendationHeader}>
         <div className={styles.recommendationsForYou}>
           Recommendations for you
@@ -54,7 +55,7 @@ const Recommendations = () => (
         <button className={styles.recommendationBtn}>All</button>
       </div>
       <div className={styles.recommendationBody}>
-        {recommendedUsersMock.map((user) => (
+        {recommendedUsers.map((user) => (
           <div className={styles.recommendedUserContainer} key={user.id}>
             <div className={styles.recommendedUserAvatarNameAndNickName}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -82,9 +83,9 @@ const Layout: React.FC<LayoutProps> = ({
   children,
   recommendations = true,
 }) => {
-  // const [showNewPost, hideNewPost] = useModal(() => (
-  //   <NewPost hide={hideNewPost} />
-  // ));
+  const [showNewPost, hideNewPost] = useModal(() => (
+    <NewPost hide={hideNewPost} />
+  ));
 
   return (
     <div
@@ -94,15 +95,17 @@ const Layout: React.FC<LayoutProps> = ({
     >
       <nav className={styles.sidebar}>
         <div className={styles.logoContainer}>
-          <ClickShotLogo className={styles.logo} />
+          <Link className={styles.logo} href={"/feed"}>
+            <ClickShotLogo />
+          </Link>
         </div>
         <div className={styles.menuContainer}>
           <ul className={styles.list}>
             <li>
-              <a href="#" className={styles.listItem}>
+              <Link className={styles.listItem} href={"/feed"}>
                 <HomeIcon />
                 <span>Main</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className={styles.listItem}>
@@ -111,8 +114,7 @@ const Layout: React.FC<LayoutProps> = ({
               </a>
             </li>
             <li>
-              {/* <button className={styles.listItem} onClick={showNewPost}> */}
-              <button className={styles.listItem}>
+              <button className={styles.listItem} onClick={showNewPost}>
                 <AddPostIcon />
                 <span>Add post</span>
               </button>
@@ -130,10 +132,10 @@ const Layout: React.FC<LayoutProps> = ({
               </a>
             </li>
             <li>
-              <a href="#" className={styles.listItem}>
+              <Link className={styles.listItem} href={"/profile"}>
                 <ProfileIcon />
                 <span>Profile</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className={styles.listItem}>

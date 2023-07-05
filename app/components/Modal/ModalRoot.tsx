@@ -7,9 +7,25 @@ interface ModalRootProp {
   modals: Record<string, ModalType>;
 }
 
+interface ModalRendererProps {
+  component: ModalType;
+}
+
+const ModalRenderer = memo(({ component, ...rest }: ModalRendererProps) =>
+  component(rest)
+);
+
+ModalRenderer.displayName = "ModalRenderer";
+
 export const ModalRoot: React.FC<ModalRootProp> = memo(({ modals }) => {
   return ReactDOM.createPortal(
-    <>{Object.keys(modals).map((key) => modals[key])}</>,
+    <>
+      {Object.keys(modals).map((key) => (
+        <ModalRenderer key={key} component={modals[key]} />
+      ))}
+    </>,
     document.body
   );
 });
+
+ModalRoot.displayName = "ModalRoot";

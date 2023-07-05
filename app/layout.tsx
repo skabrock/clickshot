@@ -1,6 +1,9 @@
-import "./globals.css";
+import { ModalProvider } from "./components/Modal/ModalProvider";
+
 // import { Roboto } from "next/font/google";
 import { Inter } from "next/font/google";
+
+import "./globals.css";
 
 // const roboto = Roboto({ weight: ["100", "300", "400"], subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -17,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ModalProvider>{children}</ModalProvider>
+      </body>
     </html>
   );
 }

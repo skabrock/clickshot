@@ -9,7 +9,7 @@ type HideModal = () => void;
 const generateModalKey = (() => {
   let count = 0;
 
-  return (): string => `${++count}`;
+  return () => `${++count}`;
 })();
 
 export const useModal = (

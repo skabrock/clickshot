@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import { useOnClickOutside } from "@/app/hooks/useOnClickOutside";
@@ -14,9 +14,12 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ children, hide }) => {
   const modalRootRef = useRef<HTMLDivElement>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
+  const [modalElement, setModalElement] = useState<HTMLElement>();
 
-  useOnClickOutside([{ current: modalRef.current }], hide);
+  useOnClickOutside(
+    [{ current: modalElement } as React.RefObject<HTMLElement>],
+    hide
+  );
 
   useEffect(() => {
     const el = modalRootRef.current;
@@ -34,8 +37,17 @@ const Modal: React.FC<ModalProps> = ({ children, hide }) => {
 
   return (
     <div ref={modalRootRef} className={styles.root}>
-      <div ref={modalRef} className={styles.window}>
-        {children}
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.modalContainer}>
+            <div
+              className={styles.modal}
+              ref={setModalElement as React.LegacyRef<HTMLDivElement>}
+            >
+              {children}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
