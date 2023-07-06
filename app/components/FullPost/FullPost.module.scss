@@ -1,0 +1,165 @@
+.modalContainer {
+  border-radius: 20px;
+}
+
+.modal {
+  padding: 0;
+}
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.image {
+  display: block;
+  width: 500px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.commentsBlock {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentsHeader {
+  width: 100%;
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  color: #57665c;
+  font-size: 16px;
+  font-weight: 500;
+  flex: 0 0 59px;
+}
+
+.closeBtn {
+  width: 12px;
+  height: 12px;
+  padding: 5px;
+  box-sizing: content-box;
+  display: block;
+  cursor: pointer;
+  line-height: 12px;
+  font-size: 16px;
+  color: #7a8b7f;
+  background: none;
+  border: 0;
+}
+
+.commentsContainer {
+  overflow: auto;
+  flex: 1 1 100px;
+  padding: 6px 16px;
+}
+
+.comment {
+  display: flex;
+
+  + .comment {
+    margin-top: 21.5px;
+  }
+}
+
+.avatar {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  align-self: flex-end;
+}
+
+.commentBody {
+  min-width: 50%;
+  background: #e3e3e1;
+  border-radius: 20px 20px 20px 0;
+  padding: 7.5px 18px;
+  margin-left: 10px;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #e3e3e1;
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+  }
+}
+
+.commentUsername {
+  font-size: 12px;
+  padding: 0;
+  margin: 0 0 2px;
+  font-weight: 600;
+}
+
+.commentText {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+
+.commentDate {
+  padding: 0;
+  margin: 7px 0 0;
+  width: 100%;
+  text-align: right;
+  color: #5b5b5a;
+  font-size: 11px;
+}
+
+.addCommentBlock {
+  display: flex;
+  flex: 0 0 59px;
+  width: 100%;
+  background: #91928f;
+  align-items: center;
+  padding: 5px 16px 5px 26px;
+}
+
+.userImage {
+  display: block;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userInput {
+  flex: 1 1 auto;
+  color: white;
+  background: none;
+  border: 0;
+  height: 38px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.addCommentBtn {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  padding: 10px;
+
+  > svg {
+    display: block;
+    color: white;
+    width: 25px;
+  }
+}

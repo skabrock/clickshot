@@ -1,3 +1,13 @@
+export interface Comment {
+  user: {
+    id: string;
+    name: string;
+    image: string;
+  };
+  text: string;
+  addDate: string;
+}
+
 export interface Post {
   id: string;
   likes: string;
@@ -11,11 +21,5 @@ export interface Post {
   };
   isLiked: boolean;
   isSaved: boolean;
-  comments: {
-    user: {
-      id: string;
-      name: string;
-    };
-    text: string;
-  }[];
+  comments: Comment[];
 }

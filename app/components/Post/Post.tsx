@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import cn from "clsx";
 import { formatDistanceToNow } from "date-fns";
 import { Post } from "@/app/types";
 
-import { useState } from "react";
+import { useModal } from "../Modal/useModal";
+import { Modal } from "../Modal";
+import { FullPost } from "../FullPost";
 
 import SaveIcon from "@/app/images/icons/save-icon.svg";
 import SaveIconBlack from "@/app/images/icons/save-icon-black.svg";
@@ -41,6 +44,10 @@ const PostComponent: React.FC<PostProps> = ({
     setIsPostsaved(!isPostSaved);
   };
 
+  const [showFullPost, hideFullPost] = useModal(() => (
+    <FullPost hide={hideFullPost} photo={mediaUrl} comments={comments} />
+  ));
+
   return (
     <div className={cn(styles.root, className)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -67,7 +74,7 @@ const PostComponent: React.FC<PostProps> = ({
           >
             {isPostLiked ? <LikeIcon /> : <UnlikedIcon />}
           </button>
-          <button className={styles.commentsButton}>
+          <button className={styles.commentsButton} onClick={showFullPost}>
             <CommentsIcon />
           </button>
         </div>
