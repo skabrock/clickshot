@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import cn from "clsx";
 
 import { useOnClickOutside } from "@/app/hooks/useOnClickOutside";
 
@@ -10,9 +11,16 @@ import styles from "./Modal.module.scss";
 interface ModalProps {
   children: React.ReactNode;
   hide: () => void;
+  modalClassName?: string;
+  containerClassName?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, hide }) => {
+const Modal: React.FC<ModalProps> = ({
+  children,
+  hide,
+  modalClassName,
+  containerClassName,
+}) => {
   const modalRootRef = useRef<HTMLDivElement>(null);
   const [modalElement, setModalElement] = useState<HTMLElement>();
 
@@ -39,9 +47,9 @@ const Modal: React.FC<ModalProps> = ({ children, hide }) => {
     <div ref={modalRootRef} className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <div className={styles.modalContainer}>
+          <div className={cn(styles.modalContainer, containerClassName)}>
             <div
-              className={styles.modal}
+              className={cn(styles.modal, modalClassName)}
               ref={setModalElement as React.LegacyRef<HTMLDivElement>}
             >
               {children}

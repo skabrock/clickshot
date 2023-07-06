@@ -1,0 +1,48 @@
+$label-height: 20px;
+
+.root {
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 48px;
+}
+
+.label {
+  position: absolute;
+  left: 3px;
+  padding: 0px 6px;
+  top: 5px;
+  line-height: $label-height;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: calc(100% - 60px);
+  text-overflow: ellipsis;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.input {
+  width: 100%;
+  height: calc(100% - 12px);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 4px 10px 0px 10px;
+  font-size: 16px;
+  resize: none;
+  font-family: inherit;
+  margin-top: 12px;
+
+  &:focus + .label,
+  &:not(:placeholder-shown) + .label {
+    top: -($label-height / 2);
+    pointer-events: initial;
+    background-color: #7a8b7f;
+    left: 7px;
+    margin-bottom: 0.4%;
+    font-size: 14px;
+  }
+}

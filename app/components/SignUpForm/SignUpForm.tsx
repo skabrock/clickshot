@@ -32,7 +32,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onNextStep }) => {
         id="repeat-password"
         label="Repeat password"
         type="password"
-        error="Wrong password"
+        //error="Wrong password"
       />
       <Input
         className={styles.input}

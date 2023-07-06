@@ -9,8 +9,8 @@ import { userMock as user } from "@/app/mocks/";
 
 import { useModal } from "../Modal/useModal";
 import NewPost from "../NewPost";
+import { ButtonSmall } from "@/app/components/UIKit";
 
-import { ButtonSmall } from "@/app/components/ButtonSmall";
 import ClickShotLogo from "@/app/images/clickshot-logo.svg";
 import HomeIcon from "@/app/images/icons/home-icon.svg";
 import SearchIcon from "@/app/images/icons/search-icon.svg";
