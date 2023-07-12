@@ -103,7 +103,7 @@ const Profile: React.FC = () => {
               <div className={styles.stats}>
                 <div className={styles.statsBlock}>
                   <div className={styles.statsTitle}>Posts</div>
-                  <div>{user.posts}</div>
+                  <div>{posts.length}</div>
                 </div>
                 <div className={styles.statsBlock}>
                   <div className={styles.statsTitle}>Following</div>
