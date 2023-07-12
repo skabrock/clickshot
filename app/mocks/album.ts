@@ -1,126 +1,310 @@
-type AlbumDTO = {
-  mediaUrl: string;
-  id: string;
-}[];
+import { Post } from "../types";
 
-export const albumMock: AlbumDTO = [
+const author = {
+  id: "1",
+  name: "mira_bond",
+  avatar:
+    "data:image/jpeg;base64,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",
+};
+
+export const albumMock: Post[] = [
   {
     mediaUrl:
       "https://img.theculturetrip.com/wp-content/uploads/2017/10/00009233-copy.jpg",
     id: "1",
+    likes: "0",
+    description:
+      "Consequat in amet quis exercitation duis dolore. Aliquip consectetur qui enim deserunt officia ea do ad in cillum dolore velit. Est nostrud non officia labore ipsum anim aliquip sint labore minim mollit. Esse amet ipsum ad labore do quis culpa sunt aute labore id cupidatat cupidatat pariatur. Amet eiusmod fugiat aliqua deserunt est. Nostrud culpa dolore dolore sint fugiat proident. Officia id voluptate id esse nostrud qui ex. Deserunt proident non enim ut labore aliqua.",
+    isLiked: false,
+    isSaved: false,
+    comments: [
+      {
+        text: "Wow!",
+        addDate: "2023-06-30 21:53:17",
+        user: {
+          id: "0",
+          name: "oovak_007",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzNAVq2hbKvH0poN3sKmz735HsaNch4LNvtw&usqp=CAU",
+        },
+      },
+    ],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://i0.wp.com/ladystravelblog.com/wp-content/uploads/2017/07/Top-of-the-Giant.jpg?resize=800%2C600&ssl=1",
     id: "2",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://img.theculturetrip.com/wp-content/uploads/2017/10/100007109.jpg",
     id: "3",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://llandscapes-10674.kxcdn.com/wp-content/uploads/2017/04/bon-echo.jpg",
     id: "4",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl: "https://assets3.thrillist.com/v1/image/2882238/1200x600/scale;",
     id: "5",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://www.planetware.com/photos-large/CDN/canada-ontario-algonquin-provincial-park.jpg",
     id: "6",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://llandscapes-10674.kxcdn.com/wp-content/uploads/2017/04/webster-falls.jpg",
     id: "7",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://assets3.thrillist.com/v1/image/3098754/1000x666/flatten;crop;webp=auto;jpeg_quality=60.jpg",
     id: "8",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://i.pinimg.com/originals/4f/12/d5/4f12d5433bb2545d7541076704425baf.jpg",
     id: "9",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://www.vrbo.com/en-ca/vacation-ideas/wp-content/uploads/3fLh0rUjoyoixf0El9Mvn8/3d4f5be47f7b674952bff8ebf4ddb70b/ariana-kaminski-Z1aVCwUQMs8-unsplash.jpg",
     id: "10",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://www.planetware.com/wpimages/2023/01/canada-ontario-parks-killarney-provincial-park-and-georgian-bay-sunset.jpg",
     id: "11",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://roadtripontario.ca/wp-content/uploads/2021/09/derek-sutton-sss0DlUxfGY-unsplash-728x546.jpg",
     id: "12",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://s3.amazonaws.com/lws_lift/park/images/blog/1633543965994_Fall_Colours_-_Sep_2021_-_pexels-pixabay-33109.jpg",
     id: "13",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://icycanada.com/wp-content/uploads/2022/09/lake-ontario-1581897_1920-860x574.jpg",
     id: "14",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://www.narcity.com/media-library/image.png?id=25919563&width=1245&height=700&coordinates=39%2C0%2C39%2C0",
     id: "15",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://neont.s3.amazonaws.com/wp-content/uploads/2023/05/Stimpson_GO7_Killarney_64901-1080x675.jpg",
     id: "16",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://cottagelife.com/wp-content/uploads/2014/06/shutterstock_207743854.jpg",
     id: "17",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://www.wallpapers13.com/wp-content/uploads/2018/11/Centennial-Park-in-Milton-Ontario-Canada-landscape-nature-Sunset-dusk-reflection-Best-HD-Desktop-Wallpapers-For-Tablets-And-Mobile-Phones-3840x2400-840x525.jpg",
     id: "18",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://justinpluslauren.com/wp-content/uploads/2021/03/Dark-Sky-Preserves-Ontario-Title.jpg.webp",
     id: "19",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://4.img-dpreview.com/files/p/TS560x560~forums/64516525/10ac36b5ce234d6690b299649b75c5bb",
     id: "20",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://continuousroamer.com/wp-content/plugins/phastpress/phast.php/c2VydmljZT1pbWFnZXMmc3JjPWh0dHBzJTNBJTJGJTJGY29udGludW91c3JvYW1lci5jb20lMkZ3cC1jb250ZW50JTJGdXBsb2FkcyUyRjIwMjElMkYwNiUyRkhhbGlidXJ0b24tT250YXJpby5qcGVnJmNhY2hlTWFya2VyPTE2ODQxNjk3NjctMTk4NTU5JnRva2VuPTViYjM4YmNmZDUzMTI3MzI.q.jpeg",
     id: "21",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://cdn.britannica.com/91/93091-050-BDD258B6/Niagara-Falls-New-York-Canada.jpg",
     id: "22",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://hikebiketravel.com/wp-content/uploads/2018/06/Oxford-9-of-1.jpg",
     id: "23",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
   {
     mediaUrl:
       "https://www.ontarioparks.com/parksblog/wp-content/uploads/2022/02/Presquile_Ice_Shore.jpg",
     id: "24",
+    likes: "0",
+    description: "",
+    isLiked: false,
+    isSaved: false,
+    comments: [],
+    addDate: "2023-06-30 21:53:17",
+    author,
   },
 ];

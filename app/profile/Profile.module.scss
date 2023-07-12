@@ -48,6 +48,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
+  row-gap: 10px;
 }
 
 .editBtn {
@@ -78,13 +79,43 @@
   white-space: pre-wrap;
 }
 
+.switchView {
+  background: white;
+  border-radius: 18px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.viewRadio {
+  display: none;
+}
+
+.viewBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 13px;
+  padding: 0 20px;
+  font-size: 14px;
+  user-select: none;
+  color: black;
+
+  &.viewBtnActive {
+    background: #7a8b7f;
+    color: white;
+  }
+}
+
 .stats {
   min-width: 300px;
   background: white;
-  border-radius: 10px;
+  border-radius: 18px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
 .statsBlock {
@@ -102,11 +133,27 @@
   user-select: none;
 }
 
-.body {
+.miniaturesBody {
   @extend %block;
   min-height: 263px;
   height: auto;
   padding: 20px;
+}
+
+.modulesBody {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: -14px;
+}
+
+.moduleContainer {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
 }
 
 .posts {
