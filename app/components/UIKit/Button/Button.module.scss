@@ -5,6 +5,7 @@
   cursor: pointer;
   font-weight: bold;
   height: 45px;
+  user-select: none;
 
   &:hover {
     box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.1);
@@ -12,6 +13,11 @@
 
   &:active {
     box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.8;
   }
 }
 

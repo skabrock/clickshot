@@ -150,10 +150,10 @@ const Layout: React.FC<LayoutProps> = ({
               </a>
             </li>
             <li>
-              <a href="#" className={styles.listItem}>
+              <Link href="/profile/edit" className={styles.listItem}>
                 <SettingsIcon />
                 <span>Settings</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className={styles.listItem}>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import cn from "clsx";
 
 import { userMock as user, albumMock as posts } from "@/app/mocks";
@@ -65,7 +66,9 @@ const Profile: React.FC = () => {
               <p className={styles.description}>{user.description}</p>
             </div>
             <div className={styles.third}>
-              <button className={styles.editBtn}>Edit Profile</button>
+              <Link href="/profile/edit" className={styles.editBtn}>
+                Edit Profile
+              </Link>
               <div className={styles.switchView}>
                 <input
                   className={styles.viewRadio}
