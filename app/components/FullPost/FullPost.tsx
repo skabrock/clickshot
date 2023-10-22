@@ -35,7 +35,7 @@ const FullPost: React.FC<FullPostProps> = ({ hide, photo, comments }) => {
           </div>
           <div className={styles.commentsContainer}>
             {comments.map((comment) => (
-              <div className={styles.comment}>
+              <div className={styles.comment} key={comment.text}>
                 <img
                   className={styles.avatar}
                   src={comment.user.image}

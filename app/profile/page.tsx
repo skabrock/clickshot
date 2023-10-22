@@ -159,8 +159,8 @@ const Profile: React.FC = () => {
                   ))}
                   {Array(5)
                     .fill("")
-                    .map(() => (
-                      <div className={styles.postFiller} />
+                    .map((_, idx) => (
+                      <div key={idx} className={styles.postFiller} />
                     ))}
                 </div>
               ) : (
